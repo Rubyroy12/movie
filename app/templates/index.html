@@ -15,5 +15,27 @@
     <h1>Welcome to web applications </h1>
     <p>{{ message }} </p>
     <h2> Hello Movie {{ id }} </h2>
+
+    <hr>
+    <h2>Popular movies </h2>
+    <ul>
+        {% for popular_movie in popular%}
+        <li>{{ popular_movie.title }}</li>
+        {% endfor %}
+    </ul>
+    <h3>upcoming movies</h3>
+    <ul>
+        {%for upcoming_movie in upcoming%}
+        <li>{{ upcoming_movie.title }}</li>
+        {% endfor%}
+    </ul>
+    <h3>Now showing movies</h3>
+    <ul>
+        {% for now_showing_movie in now_showing%}
+        <li>{{now_showing.title }}</li>
+        {% endfor %}
+    </ul>
+
+
 </body>
 </html>
