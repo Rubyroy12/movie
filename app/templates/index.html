@@ -1,3 +1,5 @@
+{% extends'base.html'%}
+{% import 'macros.html' as macro%}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,25 +19,32 @@
     <h2> Hello Movie {{ id }} </h2>
 
     <hr>
+    <!-- Styles block -->
+
+    {%block styles %}
+        {{ super()}}
+        <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
+
+    {%endblock %}
+
+
+    {%block content %}
     <h2>Popular movies </h2>
     <ul>
-        {% for popular_movie in popular%}
-        <li>{{ popular_movie.title }}</li>
-        {% endfor %}
+        {{ macro.displayMovieList(popular)}}
+
     </ul>
     <h3>upcoming movies</h3>
     <ul>
-        {%for upcoming_movie in upcoming%}
-        <li>{{ upcoming_movie.title }}</li>
-        {% endfor%}
+        {{ macro.displayMovieList(upcoming)}}
+
     </ul>
     <h3>Now showing movies</h3>
     <ul>
-        {% for now_showing_movie in now_showing%}
-        <li>{{now_showing.title }}</li>
-        {% endfor %}
-    </ul>
+        {{ macro.displayMovieList(now_showing)}}
 
+    </ul>
+    {%endblock%}
 
 </body>
 </html>

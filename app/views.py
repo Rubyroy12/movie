@@ -1,6 +1,6 @@
 from flask import render_template
 from app import app
-from .request import get_movies
+from .request import get_movies,get_movie
 
 @app.route('/')
 def index():
@@ -23,5 +23,6 @@ def movie(movie_id):
     view movie page ufnctionthat returns the movie page and ista data
     
     """
-    # movie_id = 1234
-    return render_template('movie.html', id=movie_id)
+    movie = get_movie(id)
+    title = f'{movie.title}'
+    return render_template('movie.html', movie=movie, title=title)
