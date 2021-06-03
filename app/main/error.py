@@ -1,7 +1,7 @@
 from flask import render_template
-from app import app
+from . import main #main is the blueprint instance here
 
-@app.errorhandler(404)
+@main.app.errorhandler(404)
 def four_ow_four(error):
     """
     Function to handle the 404 error page.
