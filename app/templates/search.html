@@ -1,20 +1,18 @@
-{% extends 'base.html' %}
-{% import 'macro.html' as macro %}
+{% extends 'base.html'%}
+{% import 'macros.html' as macro%}
 
-{%block content%}
+{% block content %}
     <div class="container">
+
         <div class="row">
-            <h2>Found {{movies | count}} matches</h2>
+
+            <h3> Found {{ movies| count }} matches </h3>
             <hr>
             <ul>
-                    {%macro displayMovieList(movies)%}
-
+                {{ macro.displayMovieList(movies)}}
             </ul>
-
-
 
         </div>
 
     </div>
-
-{%endblock%}
+{% endblock %}
