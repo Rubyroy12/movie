@@ -6,7 +6,7 @@ from flask_script import Manager,Server
 app=create_app('development')
 
 
-manager= manager(app)
+manager= Manager(app)
 manager.add_command('server',Server)
 
 

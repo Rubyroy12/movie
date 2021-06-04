@@ -1,13 +1,13 @@
 from flask import render_template,request,redirect,url_for
 from . import main
 from ..request import get_movies,get_movie,search_movie
-from ..models import reviews
+from ..models import Review
 from .forms import ReviewForm
 
-Review=reviews.Review
+# Review=review.Review
 
 @main.route('/') 
-def url_for():
+def index():
     """
     View root page function that returns the template and its data
     
@@ -26,7 +26,7 @@ def url_for():
     search_movie = request.args.get('movie_query')
 
     if search_movie:
-        return redirect(url_for('search',movie_name=search_movie))
+        return redirect(url_for('main.search',movie_name=search_movie))
     else:
         return render_template('index.html', title = title, popular = popular_movies, upcoming = upcoming_movie, now_showing = now_showing_movie )
 

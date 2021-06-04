@@ -1,7 +1,7 @@
 import urllib.request,json #help to create a connection to our api url and send request 
 from .models import Movie
 
-Movie = movie.Movie
+# Movie = movie.Movie
 
 
 #getting api-key

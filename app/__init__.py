@@ -33,19 +33,3 @@ def create_app(config_name):
 
     return app
     
-
-
-# # initialization of applciation
-# instance_relative_config=True)# allows connection with instance
-
-# #setting up configuration
-# app.config.from_object(DevConfig)
-# app.config.from_pyfile('config.py')
-
-
-# #Initializing flask extension
-# b = Bootstrap(app)
-
-
-# from app import views
-# from app import error
