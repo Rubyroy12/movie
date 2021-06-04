@@ -1,0 +1,4 @@
+export MOVIE_API_KEY=5b554e67624057bcd681bdca1bb261ec
+export SECRET_KEY=Royal1224
+
+python3.8 manage.py server
