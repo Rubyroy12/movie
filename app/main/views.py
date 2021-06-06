@@ -16,15 +16,13 @@ def index():
     popular_movies= get_movies('popular')
     upcoming_movie= get_movies('upcoming')
     now_showing_movie= get_movies('now_playing')
-    print(popular_movies)
+    print(popular_movies) 
     message = 'Flask is a Python web framework that makes it easy to create a fully-featured web application. Learn the basics of this popular framework so that you can create your own web application with a Python back-end.'
     title = 'Home - Welcome to The best Movie Review Website Online'
 
     search_movie = request.args.get('movie_query')
 
   
-    search_movie = request.args.get('movie_query')
-
     if search_movie:
         return redirect(url_for('main.search',movie_name=search_movie))
     else:
