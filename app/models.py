@@ -2,6 +2,7 @@ from app import db
 from werkzeug.security import generate_password_hash,check_password_hash
 from flask_login import UserMixin
 from . import login_manager
+from datetime import datetime
 
 
 @login_manager.user_loader
@@ -66,6 +67,7 @@ class User(UserMixin,db.Model):
     email = db.Column(db.String(255),unique=True)
     role_id = db.Column(db.Integer,db.ForeignKey('roles.id'))
     bio= db.Column(db.String(255))
+    reviews = db.relationship('Review',backref = 'user',lazy = "dynamic")
     profile_pic_path= db.Column(db.String())
     password_hash = db.Column(db.String(255))
     pass_secure= db.Column(db.String(255))
@@ -95,3 +97,26 @@ class Role(db.Model):
 
     def __repr__(self):
         return f'User {self.name}'
+        
+
+class Review(db.Model):
+
+    __tablename__ = 'reviews'
+
+    id = db.Column(db.Integer,primary_key = True)
+    movie_id = db.Column(db.Integer)
+    movie_title = db.Column(db.String)
+    image_path = db.Column(db.String)
+    movie_review = db.Column(db.String)
+    posted = db.Column(db.DateTime,default=datetime.utcnow)
+    user_id = db.Column(db.Integer,db.ForeignKey("users.id"))# foreign key
+
+    def save_review(self):
+        db.session.add(self)
+        db.session.commit()
+    @classmethod
+    def get_reviews(cls,id):
+        reviews = Review,query.filter_by(moview_id=id).all()
+        return reviews
+        
+
