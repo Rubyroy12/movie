@@ -116,7 +116,7 @@ class Review(db.Model):
         db.session.commit()
     @classmethod
     def get_reviews(cls,id):
-        reviews = Review,query.filter_by(moview_id=id).all()
+        reviews = Review.query.filter_by(movie_id=id).all()
         return reviews
         
 

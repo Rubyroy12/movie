@@ -5,23 +5,10 @@
 {% include 'navbar.html' %}
 {%endblock%}
 
+{%block styles %}
+  {{super()}}
+  <!--Importing the simple mde css and js files  -->
+  {{ simplemde.css}}
+  {{ simplemde.js }}
 
-
-
-
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    {% if title %}
-    <title> {{ title }}</title>
-    {% else %}
-    <title> Welcome to the best Movie Review website </title>
-    {% endif %}
-</head>
-<body>
-    {%block content %}
-    {% endblock%}
-    
-</body>
-</html> -->
+{% endblock %}
