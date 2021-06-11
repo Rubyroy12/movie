@@ -3,8 +3,8 @@ from wtforms import StringField,TextAreaField,SubmitField
 from wtforms.validators import required
 
 class ReviewForm(FlaskForm):
-    title = StringField('Review_title', validators=[required()])
-    review = TextAreaField('Review_review', validators=[required()])
+    title = StringField('Review title', validators=[required()])
+    review = TextAreaField('Movie review')
     submit =SubmitField('Submit')
 
 class UpdateProfile(FlaskForm):

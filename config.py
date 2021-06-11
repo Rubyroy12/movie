@@ -16,10 +16,10 @@ class Config:
     SIMPLEMDE_USE_CDN = True
   
 class ProdConfig(Config):
-     pass
+    pass
 
 class TestConfig(Config):
-        SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://moringa:Royal12@localhost/watchlist_test'
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://moringa:Royal12@localhost/watchlist_test'
 
 class DevConfig(Config):
     SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://moringa:Royal12@localhost/watchlist'

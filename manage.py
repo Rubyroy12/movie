@@ -7,13 +7,11 @@ from app.models import User,Role,Review
 
 #creating app instance
 app=create_app('development')
-
-
 # app=create_app('tests')
 
-
 manager= Manager(app)
-manager.add_command('server',Server)
+manager.add_command('server',Server)  
+#Initailaize Migrate   
 
 migrate= Migrate(app,db)
 manager.add_command('db',MigrateCommand)
