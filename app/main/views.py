@@ -118,7 +118,7 @@ def update_pic(uname):
     
 @main.route('/review/<int:id>')
 def single_review(id):
-    review=Review.query.get(id)
+    review=Review.query.get(id) 
     if review is None:
         abort(404)
     format_review = markdown2.markdown(review.movie_review,extras=["code-friendly", "fenced-code-blocks"])
